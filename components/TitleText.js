@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Platform } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-const TitleText = props => <Text style={styles.body}>{props.children}</Text>
+const TitleText = props => <Text style={{...styles.body, ...props.style}}>{props.children}</Text>
 
 const styles = StyleSheet.create({
     body: {

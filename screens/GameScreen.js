@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Alert, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Alert,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import NumberContainer from "../components/NumberContainer";
@@ -86,7 +93,9 @@ const GameScreen = (props) => {
       </Card>
       <View style={styles.list}>
         <ScrollView>
-          {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
+          {pastGuesses.map((guess, index) =>
+            renderListItem(guess, pastGuesses.length - index)
+          )}
         </ScrollView>
       </View>
     </View>
@@ -102,13 +111,13 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
+    marginTop: Dimensions.get('window').height > 60 ? 20 : 10,
     width: 300,
     maxWidth: "80%",
   },
   list: {
-    width: "70%"   ,
-    flexGrow: 1
+    width: "70%",
+    flexGrow: 1,
   },
   listItem: {
     borderColor: "black",
@@ -118,7 +127,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-
   },
 });
 
